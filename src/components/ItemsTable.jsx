@@ -3,8 +3,9 @@ import useStock from "../hooks/useStock";
 
 export default function ItemsTable() {
 
-    const { items } = useStock();
+  const { items } = useStock();
 
+  return (
     <table>
       <thead>
         <tr>
@@ -34,4 +35,5 @@ export default function ItemsTable() {
         ))}
       </tbody>
     </table>
+  )
 }
