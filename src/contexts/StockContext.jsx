@@ -37,10 +37,15 @@ export function StockContextProvider({children}) {
         })
     }
 
+    const getItem = (itemId) => {
+        return items.find(item => item.id === +itemId);
+    }
+
     const stock = {
         items,
         addItem,
-        deleteItem
+        deleteItem,
+        getItem
     }
 
     return (
