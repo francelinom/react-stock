@@ -8,7 +8,7 @@ ItemForm.prototype = {
     itemToUpdate: PropTypes.object
 }
 
-export default function ItemForm({itemToUpdate}) {
+export default function ItemForm({ itemToUpdate }) {
     const defaultItem = {
         name: "",
         description: "",
@@ -42,11 +42,11 @@ export default function ItemForm({itemToUpdate}) {
                 addItem(validItem);
                 setItem(defaultItem);
                 alert("Item Cadastrado com Sucesso");
-                inputRef.current.focus();
             }
-            
         } catch (error) {
             alert(error.message)
+        } finally {
+            inputRef.current.focus();
         }
     }
 
@@ -102,13 +102,13 @@ export default function ItemForm({itemToUpdate}) {
                     >
                         <option disabled value="">Selecione uma categoria...</option>
                         {CATEGORIES.map((category) => (
-                        <option
-                            key={category}
-                            value={category}
-                            defaultChecked={item.category === category}
-                        >
-                            {category}
-                        </option>
+                            <option
+                                key={category}
+                                value={category}
+                                defaultChecked={item.category === category}
+                            >
+                                {category}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -116,12 +116,12 @@ export default function ItemForm({itemToUpdate}) {
             <div className="form-control">
                 <label htmlFor="description">Descrição</label>
                 <textarea
-                name="description"
-                id="description"
-                required
-                rows={6}
-                value={item.description}
-                onChange={handleChange}
+                    name="description"
+                    id="description"
+                    required
+                    rows={6}
+                    value={item.description}
+                    onChange={handleChange}
                 ></textarea>
             </div>
             <button className="button is-primary is-large">
